@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center; /* Center text for h1 and other elements */
+        }
+        h1 {
+            color: #4a4a4a;
+        }
+        .overall-sentiment {
+            font-size: 1.2em; /* Adjusted font size for overall sentiment */
+            margin: 20px 0;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        input[type="url"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px; /* Adjusted font size for the URL input */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px; /* Added margin for better spacing */
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .positive {
+            background-color: #c8e6c9; /* Light green */
+        }
+        .negative {
+            background-color: #ffcdd2; /* Light red */
+        }
+        .neutral {
+            background-color: #ffe0b2; /* Light orange */
+        }
+        @media (max-width: 600px) {
+            input[type="url"] {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reddit Sentiment Analysis</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="url" style="display:none;">Enter Reddit Post URL:</label>
+            <input type="url" id="url" name="url" placeholder="Enter Reddit Post URL" required>
+            <button type="submit"><i class="fas fa-search"></i> Analyze</button>
+        </form>
+
+        {% if url %}
+            <h2>Analysis Results for: {{ url }}</h2>
+            <div class="overall-sentiment">
+                <strong>{{ overall_sentiment }}</strong>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comment</th>
+                        <th>Sentiment</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                        <tr class="{{ post.sentiment_class }}">
+                            <td>{{ post.comment }}</td>
+                            <td>{{ post.sentiment }}</td>
+                            <td>{{ post.score }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3">No comments to analyze.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>
