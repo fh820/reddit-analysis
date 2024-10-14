@@ -17,7 +17,7 @@ This project performs sentiment analysis on Reddit comments using a natural lang
 
 ## Installation
 1. Clone this repository:
-   git clone https://github.com/yourusername/reddit-sentiment-analysis.git
+   git clone https://github.com/fh280/reddit-sentiment-analysis.git
    cd reddit-sentiment-analysis
 2. Create a virtual environment and activate it
 3. Install the required packages
