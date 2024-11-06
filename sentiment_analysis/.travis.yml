@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.9"  # Specify the Python version you want to use
+
+# Define the install step
+install:
+  - pip install -r requirements.txt  # Install project dependencies
+
+# Define the script step to run tests
+script:
+  - pytest tests/  # Run tests; replace 'tests/' with your test directory
+
+# Optionally, you can add a deploy step if needed
