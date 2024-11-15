@@ -23,15 +23,15 @@ This project performs sentiment analysis on Reddit comments using a natural lang
 3. Install the required packages
 4. Set up your Django settings with your Reddit API credentials:
 
-  # In your Django settings.py file
-  REDDIT_CLIENT_ID = 'your_client_id'
-  REDDIT_CLIENT_SECRET = 'your_client_secret'
-  REDDIT_USER_AGENT = 'your_user_agent'
+     #In your Django settings.py file
+     REDDIT_CLIENT_ID = 'your_client_id'
+     REDDIT_CLIENT_SECRET = 'your_client_secret'
+     REDDIT_USER_AGENT = 'your_user_agent'
 
-5.Run the development server:
-  python manage.py runserver
+5. Run the development server:
+   python manage.py runserver
 
-Usage
+# Usage
 Open your browser and navigate to http://127.0.0.1:8000/.
 Enter the URL of a Reddit post you want to analyze and click "Analyze."
 View the sentiment analysis results displayed on the page.
