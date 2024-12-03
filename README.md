@@ -35,12 +35,5 @@ This project performs sentiment analysis on Reddit comments using a natural lang
 Open your browser and navigate to http://127.0.0.1:8000/.
 Enter the URL of a Reddit post you want to analyze and click "Analyze."
 View the sentiment analysis results displayed on the page.
-Contributing
-Feel free to fork this repository and submit pull requests. Any contributions are welcome!
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-Acknowledgements
-Hugging Face for the Transformers library.
-PRAW for the Reddit API wrapper.
