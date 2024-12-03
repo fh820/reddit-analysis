@@ -32,8 +32,8 @@ This project performs sentiment analysis on Reddit comments using a natural lang
    python manage.py runserver
 
 # Usage
-Open your browser and navigate to http://127.0.0.1:8000/.
+Open your browser and navigate to http://127.0.0.1:8000/
 Enter the URL of a Reddit post you want to analyze and click "Analyze."
-View the sentiment analysis results displayed on the page.
+View the sentiment analysis results displayed on the page
 
 
